@@ -40,7 +40,7 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
               <div className="flex items-center gap-5 mb-6">
                 <div className="w-24 h-24 rounded-2xl bg-gradient-custom p-1 shadow-lg shadow-purple-500/20 flex-shrink-0">
                   <img
-                    src="/Public/images/designer img.jpeg"
+                    src="/images/designer img.jpeg"
                     alt={DESIGNER_INFO.name}
                     className="w-full h-full object-cover rounded-xl"
                   />

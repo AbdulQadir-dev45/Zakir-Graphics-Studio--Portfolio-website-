@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <div className="w-16 h-16 rounded-xl bg-gradient-custom p-[2px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
             <div className={`w-full h-full rounded-[100px] flex items-center justify-center ${darkMode ? 'bg-[#2B2D33]' : 'bg-white'}`}>
-              <img src="/logo.png" alt="Zakir Studio Logo" className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform" />
+              <img src="/images/logo.png" alt="Zakir Studio Logo" className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform" />
             </div>
           </div>
           <div>

@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode, setActiveTab }) => {
             <a href="#home" onClick={(e) => { e.preventDefault(); scrollToTop(); }} className="flex items-center gap-3 mb-4 group">
               <div className="w-16 h-16 rounded-xl bg-gradient-custom p-[2px] shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
                 <div className={`w-full h-full rounded-[100px] flex items-center justify-center ${darkMode ? 'bg-[#2B2D33]' : 'bg-white'}`}>
-                  <img src="/Public/images/logo.png" alt="Zakir Studio Logo" className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform" />
+                  <img src="/images/logo.png" alt="Zakir Studio Logo" className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform" />
                 </div>
               </div>
               <span className="font-heading font-extrabold text-[20px] tracking-tight flex items-center gap-1">
