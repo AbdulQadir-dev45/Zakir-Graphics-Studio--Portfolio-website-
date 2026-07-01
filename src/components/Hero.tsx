@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, CheckCircle2, MessageSquare, Layers, Award, Eye } from 'lucide-react';
+import { ArrowRight, Sparkles, CheckCircle2, MessageSquare, Layers, Award, Eye, ArrowDown } from 'lucide-react';
 import { DESIGNER_INFO } from '../data/portfolioData';
 
 interface HeroProps {
@@ -67,8 +67,8 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onExploreClick, onContactC
                 onClick={onExploreClick}
                 className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-custom hover:opacity-95 text-white font-bold text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all group"
               >
-                <span>View Portfolio (20+)</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span>View Projects</span>
+                <ArrowDown className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
