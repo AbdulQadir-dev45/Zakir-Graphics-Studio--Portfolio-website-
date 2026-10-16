@@ -263,7 +263,7 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         </div>
         )}
 
-        <div className="text-center mt-16 px-6 py-10 rounded-3xl border transition-colors duration-300 flex flex-col items-center justify-center gap-4 ${
+        <div className="text-center m-10 mt-16 px-6 py-10 rounded-3xl border transition-colors duration-300 flex flex-col items-center justify-center gap-4 ${
           darkMode ? 'bg-[#1E1F24] border-white/10' : 'bg-slate-100 border-slate-300'
         }">
           <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-slate-600' } font-extrabold`}>

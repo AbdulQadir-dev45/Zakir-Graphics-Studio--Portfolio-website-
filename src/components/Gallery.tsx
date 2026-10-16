@@ -106,7 +106,7 @@ export const Gallery: React.FC<GalleryProps> = ({ darkMode }) => {
         <div className={`mt-16 p-8 rounded-3xl border text-center flex flex-col items-center justify-center gap-4 ${
           darkMode ? 'bg-[#1E1F24] border-white/10' : 'bg-slate-100 border-slate-300'
         }`}>
-          <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white font-heading font-black text-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
+          <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white font-heading font-black text-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
             Be
           </div>
           <h3 className="font-heading font-extrabold text-2xl tracking-tight">Want to see more high-converting flyers?</h3>

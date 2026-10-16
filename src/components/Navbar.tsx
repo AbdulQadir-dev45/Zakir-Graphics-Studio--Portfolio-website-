@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-800 ${
         scrolled
           ? darkMode
             ? 'bg-[#1E1F24]/85 backdrop-blur-md border-b border-white/10 shadow-xl py-3'
@@ -77,7 +77,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div>
             <span className="font-heading font-extrabold text-[20px] tracking-tight flex items-center gap-1">
-              ZAK2009<span className="text-gradient">GraphicsStudio</span>
+              <span className="hidden md:inline">ZAK2009</span>
+              <span className="text-gradient">GraphicsStudio</span>
             </span>
             <span className={`block text-[12px] uppercase tracking-widest font-semibold ${darkMode ? 'text-gray-400' : 'text-slate-500'}`}>
               UI/UX & Graphics

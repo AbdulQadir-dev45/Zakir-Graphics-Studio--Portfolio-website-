@@ -226,7 +226,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, preselectedService }
                       href={getWhatsAppLink()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-extrabold text-sm flex items-center justify-center gap-3 shadow-xl shadow-emerald-500/30 transition-transform hover:scale-105"
+                      className="py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-extrabold text-sm flex items-center justify-center gap-3 shadow-xl shadow-emerald-500/30 transition-transform hover:scale-105"
                     >
                       <MessageCircle className="w-5 h-5 fill-white" />
                       <span>Send via WhatsApp</span>
@@ -236,7 +236,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode, preselectedService }
                       href={getEmailLink()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 py-4 px-6 rounded-2xl bg-gradient-custom text-white font-extrabold text-sm flex items-center justify-center gap-3 shadow-xl shadow-cyan-500/30 transition-transform hover:scale-105"
+                      className="py-4 px-6 rounded-2xl bg-gradient-custom text-white font-extrabold text-sm flex items-center justify-center gap-3 shadow-xl shadow-cyan-500/30 transition-transform hover:scale-105"
                     >
                       <Mail className="w-5 h-5" />
                       <span>Send via Gmail / Email</span>

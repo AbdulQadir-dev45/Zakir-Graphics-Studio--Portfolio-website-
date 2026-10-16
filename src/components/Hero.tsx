@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onExploreClick, onContactC
             </h1>
 
             {/* Subtitle Roles */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-lg sm:text-2xl font-bold mb-6 font-display">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-base sm:text-2xl font-bold mb-6 font-display">
               <span className={darkMode ? 'text-white' : 'text-slate-800'}>Graphic Designer</span>
               <span className="text-cyan-400 font-extrabold">•</span>
               <span className="text-gradient">UI/UX Designer</span>
@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onExploreClick, onContactC
             <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
               <button
                 onClick={onExploreClick}
-                className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-gradient-custom hover:opacity-95 text-white font-bold text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all group"
+                className="sm:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-gradient-custom hover:opacity-95 text-white font-bold text-base shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all group"
               >
                 <span>View Projects</span>
                 <ArrowDown className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -73,7 +73,7 @@ export const Hero: React.FC<HeroProps> = ({ darkMode, onExploreClick, onContactC
 
               <button
                 onClick={onContactClick}
-                className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-4 rounded-2xl border font-bold text-base transition-all ${
+                className={`sm:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-2xl border font-bold text-base transition-all ${
                   darkMode
                     ? 'bg-white/5 border-white/20 text-white hover:bg-white/10 shadow-lg shadow-white/5'
                     : 'bg-white border-slate-300 text-slate-800 hover:bg-slate-50 shadow-md'

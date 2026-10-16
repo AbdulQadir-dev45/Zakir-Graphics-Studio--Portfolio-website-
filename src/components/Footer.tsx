@@ -37,9 +37,15 @@ export const Footer: React.FC<FooterProps> = ({ darkMode, setActiveTab }) => {
                   <img src="/images/logo.png" alt="Zakir Studio Logo" className="w-12 h-12 object-contain group-hover:rotate-12 transition-transform" />
                 </div>
               </div>
-              <span className="font-heading font-extrabold text-[20px] tracking-tight flex items-center gap-1">
-                ZAK2009<span className="text-gradient">GraphicsStudio</span>
-              </span>
+              <div>
+                <span className="font-heading font-extrabold text-[20px] tracking-tight flex items-center gap-1">
+                  <span className="hidden md:inline">ZAK2009</span>
+                  <span className="text-gradient">GraphicsStudio</span>
+                </span>
+                <span className={`block text-[12px] uppercase tracking-widest font-semibold ${darkMode ? 'text-gray-400' : 'text-slate-500'}`}>
+                  UI/UX & Graphics
+                </span>
+              </div>
             </a>
 
             <p className="text-gray-400 text-xs sm:text-sm max-w-sm leading-relaxed mb-6">
@@ -135,20 +141,28 @@ export const Footer: React.FC<FooterProps> = ({ darkMode, setActiveTab }) => {
         </div>
 
         {/* Bottom Credits & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p className="flex items-center gap-1 text-center sm:text-left">
+        <div className="pt-8 flex items-center justify-between gap-4 text-xs text-gray-400">
+          <p className="flex flex-col items-center gap-1 text-center sm:flex-row sm:text-left">
             <span>© {new Date().getFullYear()} Graphic Designer Portfolio.</span>
-            <span>Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" />
+
+            {/* <span>Crafted with <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" /></span> */}
+            {/* <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" /> */}
+
+            <span className='text-sm flex flex-row gap-1'>
+              Developed By <span className="text-cyan-400 ">
+                <a className='flex flex-row gap-1 hover:underline' href="https://github.com/AbdulQadir-dev45" target='blank'>
+                AbdulQadir-dev45 <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </span>
+            </span>
           </p>
 
-          <div className="flex items-center gap-4">
-            <span className="text-[11px] font-mono text-gray-500">+92 318 2619135 • zak2009graphicsstudio</span>
+          <div>
             <button
               onClick={scrollToTop}
               className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-cyan-400 transition-colors flex items-center gap-1.5 font-bold"
             >
-              <span>Back to top</span>
+              <span className= "hidden md:flex">Back to top</span>
               <ArrowUp className="w-4 h-4" />
             </button>
           </div>
