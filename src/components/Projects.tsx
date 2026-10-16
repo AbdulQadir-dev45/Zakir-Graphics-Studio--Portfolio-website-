@@ -236,7 +236,7 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                   href={`https://wa.me/${DESIGNER_INFO.whatsappNumber}?text=Hi%20Zakir!%20I%20love%20your%20project:%20"${encodeURIComponent(activeModalProject.title)}".%20Can%20you%20design%20something%20similar%20for%20me?`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition-all"
+                  className="w-full py-3.5 px-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition-all"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Order Similar Design (WhatsApp)</span>
