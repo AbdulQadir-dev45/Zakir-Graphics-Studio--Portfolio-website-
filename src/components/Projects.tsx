@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, ExternalLink, Eye, Heart, Layers, X, MessageCircle, FolderOpen, Sparkles } from 'lucide-react';
 import { PROJECTS_DATA, DESIGNER_INFO } from '../data/portfolioData';
 import { Project } from '../types';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -28,64 +29,68 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 mb-4">
-            <FolderOpen className="w-3.5 h-3.5" />
-            <span>Featured Case Studies</span>
+        <ScrollReveal direction="up" delay={0} duration={650}>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 mb-4">
+              <FolderOpen className="w-3.5 h-3.5" />
+              <span>Featured Case Studies</span>
+            </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+              My Projects <br className="hidden sm:block" />
+              <span className="text-gradient">Portfolio Masterpieces</span>
+            </h2>
+            <p className={`text-base sm:text-lg ${darkMode ? 'text-gray-400 font-light' : 'text-slate-600'}`}>
+              Featuring promotional flyers, gym ads, bakery posters, corporate event banners, and vector monograms.
+            </p>
           </div>
-          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
-            My Projects <br className="hidden sm:block" />
-            <span className="text-gradient">Portfolio Masterpieces</span>
-          </h2>
-          <p className={`text-base sm:text-lg ${darkMode ? 'text-gray-400 font-light' : 'text-slate-600'}`}>
-            Featuring promotional flyers, gym ads, bakery posters, corporate event banners, and vector monograms.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Filter Controls Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
-          
-          {/* Category Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 w-full md:w-auto">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
-                  selectedCategory === cat
-                    ? 'bg-gradient-custom text-white shadow-lg shadow-cyan-500/20 scale-105'
-                    : darkMode
-                      ? 'bg-[#2B2D33] text-gray-300 hover:bg-white/10 border border-white/5'
-                      : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200 shadow-sm'
+        <ScrollReveal direction="up" delay={100} duration={650}>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+            
+            {/* Category Pills */}
+            <div className="flex flex-wrap items-center justify-center gap-2 w-full md:w-auto">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all ${
+                    selectedCategory === cat
+                      ? 'bg-gradient-custom text-white shadow-lg shadow-cyan-500/20 scale-105'
+                      : darkMode
+                        ? 'bg-[#2B2D33] text-gray-300 hover:bg-white/10 border border-white/5'
+                        : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200 shadow-sm'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+
+            {/* Search Box */}
+            <div className="relative w-full md:w-72">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search flyers, tech, food..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={`w-full pl-11 pr-4 py-3 rounded-2xl text-sm border focus:outline-none transition-all ${
+                  darkMode
+                    ? 'bg-[#2B2D33] border-white/10 text-white placeholder-gray-500 focus:border-cyan-400'
+                    : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400 focus:border-cyan-500 shadow-sm'
                 }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+              />
+              {searchQuery && (
+                <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
 
-          {/* Search Box */}
-          <div className="relative w-full md:w-72">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search flyers, tech, food..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className={`w-full pl-11 pr-4 py-3 rounded-2xl text-sm border focus:outline-none transition-all ${
-                darkMode
-                  ? 'bg-[#2B2D33] border-white/10 text-white placeholder-gray-500 focus:border-cyan-400'
-                  : 'bg-white border-slate-300 text-slate-900 placeholder-slate-400 focus:border-cyan-500 shadow-sm'
-              }`}
-            />
-            {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white">
-                <X className="w-4 h-4" />
-              </button>
-            )}
           </div>
-
-        </div>
+        </ScrollReveal>
 
         {/* Projects Grid */}
         {filteredProjects.length === 0 ? (
@@ -96,73 +101,81 @@ export const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project: Project) => (
-              <div
+            {filteredProjects.map((project: Project, idx: number) => (
+              <ScrollReveal
                 key={project.id}
-                onClick={() => setActiveModalProject(project)}
-                className={`group cursor-pointer rounded-3xl border transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-2 hover:shadow-2xl ${
-                  darkMode
-                    ? 'bg-[#2B2D33] border-white/10 hover:border-cyan-400/50 hover:shadow-cyan-500/10'
-                    : 'bg-white border-slate-200 hover:border-cyan-500 hover:shadow-xl'
-                }`}
+                direction="up"
+                delay={(idx % 3) * 100}
+                duration={650}
+                className="h-full flex flex-col"
               >
-                {/* Thumbnail Preview Container */}
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-900">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <span className="text-cyan-300 text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1">
-                      <Sparkles className="w-3 h-3" />
-                    </span>
-                    <p className="text-white text-xs line-clamp-2 mb-3">{project.description}</p>
-                    <div className="flex items-center gap-2">
-                      <span className="px-3 py-1 bg-cyan-500 text-black text-xs font-bold rounded-full">
-                        View Artwork Details
+                <div
+                  key={project.id}
+                  onClick={() => setActiveModalProject(project)}
+                  className={`group cursor-pointer rounded-3xl border transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-2 hover:shadow-2xl h-full ${
+                    darkMode
+                      ? 'bg-[#2B2D33] border-white/10 hover:border-cyan-400/50 hover:shadow-cyan-500/10'
+                      : 'bg-white border-slate-200 hover:border-cyan-500 hover:shadow-xl'
+                  }`}
+                >
+                  {/* Thumbnail Preview Container */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-900">
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                      <span className="text-cyan-300 text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1">
+                        <Sparkles className="w-3 h-3" />
                       </span>
+                      <p className="text-white text-xs line-clamp-2 mb-3">{project.description}</p>
+                      <div className="flex items-center gap-2">
+                        <span className="px-3 py-1 bg-cyan-500 text-black text-xs font-bold rounded-full">
+                          View Artwork Details
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Top Right Likes pill */}
+                    <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 border border-white/10">
+                      <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
+                      <span>{project.likes}</span>
                     </div>
                   </div>
 
-                  {/* Top Right Likes pill */}
-                  <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded-full text-xs font-semibold flex items-center gap-1 border border-white/10">
-                    <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
-                    <span>{project.likes}</span>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6 flex flex-col justify-between flex-1">
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-cyan-400 font-semibold mb-2">
-                      <span className="text-gray-500">{project.year}</span>
-                    </div>
-                    <h3 className={`font-heading font-extrabold text-xl tracking-tight mb-3 group-hover:text-cyan-400 transition-colors ${
-                      darkMode ? 'text-white' : 'text-slate-900'
-                    }`}>
-                      {project.title}
-                    </h3>
-                  </div>
-
-                  {/* Tools & Tags */}
-                  <div className="flex flex-wrap items-center gap-1.5 pt-4 mt-4 border-t border-white/5">
-                    {project.tools.map((t, idx) => (
-                      <span key={idx} className={`px-2.5 py-1 rounded-lg text-[11px] font-bold font-mono ${
-                        darkMode ? 'bg-[#1E1F24] text-cyan-300' : 'bg-slate-100 text-slate-700'
+                  {/* Card Body */}
+                  <div className="p-6 flex flex-col justify-between flex-1">
+                    <div>
+                      <div className="flex items-center justify-between text-xs text-cyan-400 font-semibold mb-2">
+                        <span className="text-gray-500">{project.year}</span>
+                      </div>
+                      <h3 className={`font-heading font-extrabold text-xl tracking-tight mb-3 group-hover:text-cyan-400 transition-colors ${
+                        darkMode ? 'text-white' : 'text-slate-900'
                       }`}>
-                        {t}
-                      </span>
-                    ))}
-                    {project.tags.slice(0, 2).map((tg, i) => (
-                      <span key={i} className="text-[11px] text-gray-400 font-medium px-2 py-1">
-                        #{tg}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                        {project.title}
+                      </h3>
+                    </div>
 
-              </div>
+                    {/* Tools & Tags */}
+                    <div className="flex flex-wrap items-center gap-1.5 pt-4 mt-4 border-t border-white/5">
+                      {project.tools.map((t, tIdx) => (
+                          <span key={tIdx} className={`px-2.5 py-1 rounded-lg text-[11px] font-bold font-mono ${
+                          darkMode ? 'bg-[#1E1F24] text-cyan-300' : 'bg-slate-100 text-slate-700'
+                        }`}>
+                          {t}
+                        </span>
+                      ))}
+                      {project.tags.slice(0, 2).map((tg, i) => (
+                        <span key={i} className="text-[11px] text-gray-400 font-medium px-2 py-1">
+                          #{tg}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         )}

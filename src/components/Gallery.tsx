@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, Heart, Sparkles, Image as ImageIcon, ZoomIn, X, ExternalLink, MessageCircle } from 'lucide-react';
 import { PROJECTS_DATA, DESIGNER_INFO } from '../data/portfolioData';
+import { ScrollReveal } from './ScrollReveal';
 
 interface GalleryProps {
   darkMode: boolean;
@@ -41,88 +42,100 @@ export const Gallery: React.FC<GalleryProps> = ({ darkMode }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 mb-4">
-            <ImageIcon className="w-3.5 h-3.5" />
-            <span>Creative Showcase (Gallary)</span>
+        <ScrollReveal direction="up" delay={0} duration={650}>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 mb-4">
+              <ImageIcon className="w-3.5 h-3.5" />
+              <span>Creative Showcase (Gallary)</span>
+            </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+              Visual Inspiration & <br className="hidden sm:block" />
+              <span className="text-gradient">Studio Artwork Wall</span>
+            </h2>
+            <p className={`text-base sm:text-lg ${darkMode ? 'text-gray-400 font-light' : 'text-slate-600'}`}>
+              Explore our curated masonry showcase of high-resolution promotional posters, digital paintings, and brand mockups.
+            </p>
           </div>
-          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
-            Visual Inspiration & <br className="hidden sm:block" />
-            <span className="text-gradient">Studio Artwork Wall</span>
-          </h2>
-          <p className={`text-base sm:text-lg ${darkMode ? 'text-gray-400 font-light' : 'text-slate-600'}`}>
-            Explore our curated masonry showcase of high-resolution promotional posters, digital paintings, and brand mockups.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Masonry / Bento Grid Showcase */}
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
           {galleryItems.map((item, idx) => (
-            <div
+            <ScrollReveal
               key={item.id}
-              onClick={() => setLightboxIndex(idx)}
-              className={`group relative break-inside-avoid rounded-3xl overflow-hidden cursor-pointer border transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl ${
-                darkMode ? 'bg-[#1E1F24] border-white/10 shadow-lg' : 'bg-slate-50 border-slate-200 shadow-md'
-              }`}
+              direction="up"
+              delay={(idx % 4) * 80}
+              duration={600}
+              className="break-inside-avoid"
             >
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
-              
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
-                <span className="text-cyan-300 text-[10px] font-bold uppercase tracking-widest block mb-1">
-                  {item.category}
-                </span>
-                <h4 className="text-white font-heading font-extrabold text-base mb-2 line-clamp-1">
-                  {item.title}
-                </h4>
+              <div
+                key={item.id}
+                onClick={() => setLightboxIndex(idx)}
+                className={`group relative rounded-3xl overflow-hidden cursor-pointer border transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl ${
+                  darkMode ? 'bg-[#1E1F24] border-white/10 shadow-lg' : 'bg-slate-50 border-slate-200 shadow-md'
+                }`}
+              >
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                  loading="lazy"
+                />
+                
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+                  <span className="text-cyan-300 text-[10px] font-bold uppercase tracking-widest block mb-1">
+                    {item.category}
+                  </span>
+                  <h4 className="text-white font-heading font-extrabold text-base mb-2 line-clamp-1">
+                    {item.title}
+                  </h4>
 
-                <div className="flex items-center justify-between text-xs text-gray-300 pt-2 border-t border-white/20">
-                  <div className="flex items-center gap-1 text-rose-400 font-bold">
-                    <Heart className="w-3.5 h-3.5 fill-rose-400" />
-                    <span>{item.likes}</span>
-                  </div>
-                  <div className="flex items-center gap-1 text-cyan-400 font-bold">
-                    <ZoomIn className="w-3.5 h-3.5" />
-                    <span>Quick Expand</span>
+                  <div className="flex items-center justify-between text-xs text-gray-300 pt-2 border-t border-white/20">
+                    <div className="flex items-center gap-1 text-rose-400 font-bold">
+                      <Heart className="w-3.5 h-3.5 fill-rose-400" />
+                      <span>{item.likes}</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-cyan-400 font-bold">
+                      <ZoomIn className="w-3.5 h-3.5" />
+                      <span>Quick Expand</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Top right floating pill */}
-              <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] text-white font-semibold flex items-center gap-1 border border-white/15 opacity-80 group-hover:opacity-0 transition-opacity">
-                <Sparkles className="w-3 h-3 text-cyan-400" />
-                <span>HD</span>
+                {/* Top right floating pill */}
+                <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] text-white font-semibold flex items-center gap-1 border border-white/15 opacity-80 group-hover:opacity-0 transition-opacity">
+                  <Sparkles className="w-3 h-3 text-cyan-400" />
+                  <span>HD</span>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Behance Follow Banner */}
-        <div className={`mt-16 p-8 rounded-3xl border text-center flex flex-col items-center justify-center gap-4 ${
-          darkMode ? 'bg-[#1E1F24] border-white/10' : 'bg-slate-100 border-slate-300'
-        }`}>
-          <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white font-heading font-black text-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
-            Be
+        <ScrollReveal direction="up" delay={150} duration={700}>
+          <div className={`mt-16 p-8 rounded-3xl border text-center flex flex-col items-center justify-center gap-4 ${
+            darkMode ? 'bg-[#1E1F24] border-white/10' : 'bg-slate-100 border-slate-300'
+          }`}>
+            <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white font-heading font-black text-2xl flex items-center justify-center shadow-lg shadow-blue-600/30">
+              Be
+            </div>
+            <h3 className="font-heading font-extrabold text-2xl tracking-tight">Want to see more high-converting flyers?</h3>
+            <p className={`text-sm max-w-lg ${darkMode ? 'text-gray-400' : 'text-slate-600'}`}>
+              Follow Muhammad Zakir Hussain on Behance to stay updated with daily promotional ad releases and branding inspirations.
+            </p>
+            <a
+              href={DESIGNER_INFO.links.behance}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm flex items-center gap-2 shadow-xl shadow-blue-600/25 transition-transform hover:scale-105"
+            >
+              <span>Visit Official Behance Profile</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </div>
-          <h3 className="font-heading font-extrabold text-2xl tracking-tight">Want to see more high-converting flyers?</h3>
-          <p className={`text-sm max-w-lg ${darkMode ? 'text-gray-400' : 'text-slate-600'}`}>
-            Follow Muhammad Zakir Hussain on Behance to stay updated with daily promotional ad releases and branding inspirations.
-          </p>
-          <a
-            href={DESIGNER_INFO.links.behance}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm flex items-center gap-2 shadow-xl shadow-blue-600/25 transition-transform hover:scale-105"
-          >
-            <span>Visit Official Behance Profile</span>
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
+        </ScrollReveal>
 
       </div>
 
